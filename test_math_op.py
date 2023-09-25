@@ -1,5 +1,5 @@
 import pytest
-from math_op import add, divide
+from math_op import add, divide, multiply
 
 @pytest.fixture
 def sample_input():
@@ -18,3 +18,10 @@ def test_divide(sample_divide_input):
 def test_divide_by_zero():
     with pytest.raises(ValueError, match="Cannot divide by zero"):
         divide(1, 0)
+
+@pytest.fixture
+def sample_multiply_input():
+    return (3, 4)
+
+def test_multiply(sample_multiply_input):
+    assert multiply(sample_multiply_input[0], sample_multiply_input[1]) == 12
